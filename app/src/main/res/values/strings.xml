@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Status Application</string>
+    <string name="error_msg_fetching_data">Error fetching data from Server. Please try again.</string>
+    <string name="title_activity_status">StatusActivity</string>
+    <string name="tab_text_1">APIs &amp; DBs</string>
+    <string name="tab_text_2">Sites</string>
+    <string name="parent_status_text_view_label">Parent Status Name: %s</string>
+    <string name="child_status_text_view_label">Child Status Name: %s</string>
+    <string name="child_status_url_text_view_label">Url: %s</string>
+    <string name="child_status_response_code_text_view_label">Response Code: %s</string>
+    <string name="child_status_response_time_text_view_label">Response Time: %s</string>
+    <string name="child_status_class_text_view_label">Status Class: %s</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="childStatus"
+            type="com.android_dev_challenge.status.ui.dto.StatusDto.ChildStatus" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        cardView:cardCornerRadius="@dimen/dp_8"
+        cardView:cardElevation="@dimen/dp_8">
+
+        <TextView
+            android:id="@+id/childStatusNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:fontFamily="sans-serif-black"
+            android:text="@{childStatus.childStatusName}"
+            android:textSize="@dimen/sp_20" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

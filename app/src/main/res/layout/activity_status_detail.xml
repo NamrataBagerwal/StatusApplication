@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.StatusDetailActivity">
+
+    <data>
+        <variable
+            name="childStatus"
+            type="com.android_dev_challenge.status.ui.dto.StatusDto.ChildStatus" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <TextView
+                android:id="@+id/appBarLayoutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:padding="@dimen/appbar_padding"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/carView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            cardView:cardCornerRadius="@dimen/dp_8"
+            cardView:cardElevation="@dimen/dp_8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/parentStatusNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{@string/parent_status_text_view_label(childStatus.parentStatusName)}"
+                    android:textSize="@dimen/sp_20" />
+
+                <TextView
+                    android:id="@+id/childStatusNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{@string/child_status_text_view_label(childStatus.childStatusName)}"
+                    android:textSize="@dimen/sp_20" />
+
+                <TextView
+                    android:id="@+id/urlTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{@string/child_status_url_text_view_label(childStatus.url)}"
+                    android:textSize="@dimen/sp_20" />
+
+                <TextView
+                    android:id="@+id/responseCodeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{@string/child_status_response_code_text_view_label(String.valueOf(childStatus.responseCode))}"
+                    android:textSize="@dimen/sp_20" />
+
+                <TextView
+                    android:id="@+id/responseTimeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{@string/child_status_response_time_text_view_label(String.valueOf(childStatus.responseTime))}"
+                    android:textSize="@dimen/sp_20" />
+
+                <TextView
+                    android:id="@+id/statusClassTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@{@string/child_status_class_text_view_label(childStatus.statusClass)}"
+                    android:textSize="@dimen/sp_20" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</layout>
