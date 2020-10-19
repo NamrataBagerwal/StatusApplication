@@ -15,11 +15,9 @@ class StatusUseCase(private val remoteRepository: RemoteRepository) {
             .flatMap { result: Result<StatusApiResponse> ->
                 when (result) {
                     is Result.Failure -> {
-                        println("Result.Failure")
                         Flowable.just(Result.Failure(result.errorHolder))
                     }
                     is Result.Success -> {
-                        println("Result.Success")
                         val statusApiResponse = result.value
                         val statusDto: StatusDto = when (position) {
                             0 -> getStatusDtoForFirstTab(statusApiResponse)
@@ -37,7 +35,7 @@ class StatusUseCase(private val remoteRepository: RemoteRepository) {
                                     )
                                 })
                             }
-                            else -> getStatusDtoForFirstTab(statusApiResponse)
+                            else -> StatusDto(APIS_DBS, mutableListOf())
                         }
 
                         Flowable.just(Result.Success(statusDto))

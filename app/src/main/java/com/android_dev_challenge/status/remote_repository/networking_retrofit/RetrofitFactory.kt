@@ -4,7 +4,6 @@ import com.android_dev_challenge.status.remote_repository.networking_retrofit.in
 import com.android_dev_challenge.status.remote_repository.networking_retrofit.interceptor.OfflineCacheInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.java.KoinJavaComponent.inject
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.jackson.JacksonConverterFactory
@@ -15,10 +14,8 @@ object RetrofitFactory {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val cacheInterceptor: CacheInterceptor by inject(CacheInterceptor::class.java)
-
     private val okHttpClient = OkHttpClient().newBuilder()
-        .addNetworkInterceptor(cacheInterceptor)
+        .addNetworkInterceptor(CacheInterceptor())
         .addInterceptor(OfflineCacheInterceptor())
         .addInterceptor(loggingInterceptor)
         .build()

@@ -15,12 +15,8 @@ class StatusActivityViewModel(private val statusUseCase: StatusUseCase) : ViewMo
     private lateinit var statusLiveData: LiveData<Result<StatusDto>>
 
     private fun updateStatusLiveData() {
-        println("updateStatusLiveData ${::statusLiveData.isInitialized}")
-        if (!::statusLiveData.isInitialized){
-            println("updateStatusLiveData if condition called")
-            statusLiveData =
-                LiveDataReactiveStreams.fromPublisher(statusUseCase.getStatus(_index.value))
-        }
+        statusLiveData =
+            LiveDataReactiveStreams.fromPublisher(statusUseCase.getStatus(_index.value))
     }
 
     fun getStatusLiveData(): LiveData<Result<StatusDto>> {

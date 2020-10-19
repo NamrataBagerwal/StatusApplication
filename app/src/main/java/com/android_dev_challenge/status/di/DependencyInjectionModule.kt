@@ -4,13 +4,12 @@ import com.android_dev_challenge.status.BuildConfig
 import com.android_dev_challenge.status.remote_repository.ErrorHandler
 import com.android_dev_challenge.status.remote_repository.RemoteRepository
 import com.android_dev_challenge.status.remote_repository.networking_retrofit.RetrofitFactory
-import com.android_dev_challenge.status.remote_repository.networking_retrofit.interceptor.CacheInterceptor
 import com.android_dev_challenge.status.remote_repository.webservice.StatusApi
 import com.android_dev_challenge.status.remote_repository.webservice.StatusApiCall
 import com.android_dev_challenge.status.usecase.StatusUseCase
 import com.android_dev_challenge.status.viewmodel.StatusActivityViewModel
-import org.koin.dsl.module
 import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 object DependencyInjectionModule {
     val common = module {
@@ -18,7 +17,6 @@ object DependencyInjectionModule {
     }
 
     val statusApiModule = module {
-        single { CacheInterceptor(get()) }
         single {
             val api: StatusApi =
                 RetrofitFactory.retrofit(BuildConfig.BASE_URL).create(StatusApi::class.java)

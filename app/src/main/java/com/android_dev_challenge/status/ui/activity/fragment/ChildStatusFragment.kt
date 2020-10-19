@@ -51,12 +51,11 @@ class ChildStatusFragment : Fragment() {
         }
         (activity as StatusActivity).statusActivityViewModel.setTabIndex(getCurrentTabIndex())
         observeUserList()
-        println("onActivityCreated ${(activity as StatusActivity).statusActivityViewModel}")
     }
 
     private fun observeUserList() {
         val statusLiveData: LiveData<Result<StatusDto>> = (activity as StatusActivity).statusActivityViewModel.getStatusLiveData()
-//        statusLiveData.removeObservers(this)
+        statusLiveData.removeObservers(this)
         statusLiveData.observe(
             viewLifecycleOwner,
             { result: Result<StatusDto> ->
